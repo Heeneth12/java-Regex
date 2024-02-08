@@ -54,9 +54,11 @@ public class Main {
     public static void main(String[] args) {
 
         UserName user = new UserName();
+        Email email = new Email();
 
         user.firstName();
         user.LastName();
+        email.validEmail();
 
     }
 }
