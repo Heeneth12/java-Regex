@@ -55,10 +55,12 @@ public class Main {
 
         UserName user = new UserName();
         Email email = new Email();
+        MobileNum num = new MobileNum();
 
         user.firstName();
         user.LastName();
         email.validEmail();
+        num.validNumber();
 
     }
 }
