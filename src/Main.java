@@ -4,10 +4,7 @@ public class Main {
 
         UserData user = new UserData();
 
-        user.firstName();
-        user.LastName();
         user.validEmail();
-        user.validNumber();
 
         System.out.println("data is successfuly verfied");
 
