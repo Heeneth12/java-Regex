@@ -4,7 +4,7 @@ import java.util.regex.Pattern;
 
 public class UserData {
 
-    public void validEmail() {
+    public void validEmail() throws CustomException {
 
         Scanner scanner = new Scanner(System.in);
 
@@ -20,7 +20,7 @@ public class UserData {
         if (matcher.matches()) {
             System.out.println("valid");
         } else {
-            System.out.println("in valid ");
+            throw new CustomException("Invalid Email : " + inputEmail);
         }
 
     }
@@ -39,7 +39,7 @@ public class UserData {
         System.out.println(matcher.matches() ? "valid number" : "Invalid mobile number");
     }
 
-    public void firstName() {
+    public void firstName() throws CustomException {
 
         Scanner scanner = new Scanner(System.in);
 
@@ -54,44 +54,42 @@ public class UserData {
 
         if (matcher.matches()) {
             System.out.println("Valid first name! " + firstName);
+
         } else {
-            System.out
-                    .println("Invalid first name " + firstName
-                            + " Please start with 'cao' and have a minimum length of 3 characters. ");
+            throw new CustomException("Invalid first name: " + firstName);
+
         }
 
     }
 
-    public void LastName() {
+    public void LastName() throws CustomException {
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Enter your Last name: ");
-        String firstName = scanner.nextLine();
+        String LastName = scanner.nextLine();
 
         // Define the regular expression for the first name
         String regex = "^[A-Z][a-z]{2,}$";
         // {2,}quantifer it sayes small letter atleast two or more
         Pattern pattern = Pattern.compile(regex);
-        Matcher matcher = pattern.matcher(firstName);
+        Matcher matcher = pattern.matcher(LastName);
 
         if (matcher.matches()) {
-            System.out.println("Valid Last name! " + firstName);
+            System.out.println("Valid Last name! " + LastName);
         } else {
-            System.out
-                    .println("Invalid Last name " + firstName
-                            + " Please start with 'cao' and have a minimum length of 3 characters. ");
+            throw new CustomException("Invalid first name: " + LastName);
         }
 
     }
 
-    public void validPassword() {
+    public void validPassword() throws CustomException {
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Enter your password : ");
         String password = scanner.nextLine();
 
         // Define the regular expression for the first name
-        String regex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).{8,}$";
+        String regex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[!@#$%^&*()-_+=]).{8,}$";
         // {2,}quantifer it sayes small letter atleast two or more
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(password);
@@ -99,8 +97,7 @@ public class UserData {
         if (matcher.matches()) {
             System.out.println("Valid password! ");
         } else {
-            System.out
-                    .println("Invalid Password" + password);
+            throw new CustomException("Invalid first name: " + password);
         }
 
     }
